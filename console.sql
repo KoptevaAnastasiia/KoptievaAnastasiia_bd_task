@@ -445,14 +445,31 @@ WHERE NOT EXISTS (
     WHERE employee_service.employee_id = employee.employee_id
 );
 
-
+ 
  DELETE FROM payment
 WHERE  EXISTS ( SELECT 1 FROM appointment
     WHERE appointment.id != payment.appointment_id
 );
 
 
+SELECT product.name
+FROM product
+WHERE product.name = 'Крем'
 
- 
+UNION
 
- 
+SELECT service.name
+FROM service
+ ;
+
+
+
+SELECT customer.name, customer.phone, customer.address
+FROM customer
+WHERE id > 10
+
+UNION ALL
+
+SELECT service.name, NULL, NULL
+FROM service
+WHERE id = 1;
