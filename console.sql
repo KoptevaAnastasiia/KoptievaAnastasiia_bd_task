@@ -473,3 +473,16 @@ UNION ALL
 SELECT service.name, NULL, NULL
 FROM service
 WHERE id = 1;
+
+
+SELECT customer.name, customer.phone, customer.address
+FROM customer
+WHERE id > 10
+
+EXCEPT
+
+
+SELECT service.name, NULL, NULL
+FROM service
+WHERE id = 1;
+
