@@ -365,18 +365,20 @@ SELECT * FROM appointment WHERE  employee_id NOT IN (SELECT employee_id FROM emp
 SELECT * FROM appointment WHERE EXISTS (SELECT 1 FROM appointment WHERE datetime = '2024-03-07 10:00:00'
                                                                   AND status = 'Завершено');
 
- SELECT * FROM appointment WHERE NOT EXISTS (SELECT 1 FROM appointment WHERE status = 'Триває');
+SELECT * FROM appointment WHERE NOT EXISTS (SELECT 1 FROM appointment WHERE status = 'Триває');
 
 
--- non c update
-UPDATE employee SET salary = 3000 WHERE salary = 2500 ;
+-- non c updatec
 UPDATE service SET price = 30 WHERE id NOT IN (1, 5);
 
-  
+UPDATE service SET price = 30 WHERE price IN (40.00);
+
+UPDATE service
+SET price = 30
+WHERE price = 40.00;
 
 
-DELETE FROM appointment
-WHERE id NOT IN (SELECT appointment_id FROM payment);
+DELETE FROM appointment WHERE id NOT IN (SELECT appointment_id FROM payment);
 
 
 
@@ -400,6 +402,7 @@ WHERE NOT EXISTS (
     SELECT * FROM appointment appoint
     WHERE appoint.customer_id = custo.id AND appoint.status = 'Завершений'
 );
+
 SELECT * FROM appointment WHERE status = 'Завершений';
 
 
@@ -486,3 +489,55 @@ SELECT service.name, NULL, NULL
 FROM service
 WHERE id = 1;
 
+SELECT name
+FROM service
+WHERE id = 1;
+
+UPDATE service
+SET price = 30
+WHERE price = 40.00
+  AND NOT EXISTS (
+    SELECT 1
+    FROM (SELECT * FROM service) AS temp
+    WHERE temp.price = 40.00
+);
+
+
+UPDATE service
+SET price = 30
+WHERE price = 40.00
+  AND EXISTS (
+    SELECT 1
+    FROM (SELECT * FROM service) AS temp
+    WHERE temp.price = 40.00
+);
+
+
+
+DELETE FROM payment
+WHERE date IN ('2024-03-12');
+
+
+DELETE FROM payment
+WHERE date NOT IN ('2024-03-12');
+
+
+DELETE FROM payment
+WHERE date = ('2024-03-12');
+
+DELETE FROM product
+WHERE EXISTS (
+    SELECT 1
+    FROM (SELECT * FROM product) AS temp
+    WHERE temp.cost > 15.00
+);
+
+DELETE FROM product
+WHERE NOT EXISTS (
+    SELECT 1
+    FROM (SELECT * FROM product) AS temp
+    WHERE temp.cost > 15.00
+);
+
+DELETE FROM product
+WHERE  cost = 15.00;
