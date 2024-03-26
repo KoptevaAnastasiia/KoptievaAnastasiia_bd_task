@@ -329,16 +329,17 @@ VALUES
     (25, 25),
     (26, 26),
     (27, 27);
+
 ALTER TABLE appointment
     ADD CONSTRAINT fk_customer_id
-        FOREIGN KEY (customer_id) REFERENCES customer(id);
+        FOREIGN KEY (customer_id) REFERENCES customer(id);  
 
 ALTER TABLE appointment
     ADD CONSTRAINT fk_service_id
         FOREIGN KEY (service_id) REFERENCES service(id);
 
 ALTER TABLE appointment
-    ADD CONSTRAINT fk_employee_id
+    ADD CONSTRAINT fk_employee_idtest
         FOREIGN KEY (employee_id) REFERENCES employee(employee_id);
 
 ALTER TABLE payment
@@ -348,7 +349,7 @@ ALTER TABLE payment
 ALTER TABLE payment
     ADD CONSTRAINT fk_customer_payment
         FOREIGN KEY (customer_id) REFERENCES customer(id);
-
+                   -- це    посилається на     це
 
 ALTER TABLE appointment
     ADD CONSTRAINT fk_employee_appointment
@@ -358,7 +359,7 @@ ALTER TABLE appointment
 
 -- НЕ КОРОЛЬОВАНІ 
   
-SELECT * FROM appointment WHERE employee_id IN (SELECT employee_id FROM employee WHERE position = 'Стиліст' )
+SELECT employee_id FROM appointment WHERE employee_id IN (SELECT employee_id FROM employee WHERE position = 'Стиліст' )
 AND employee_id NOT IN (SELECT employee_id FROM employee WHERE salary = '3000');
 SELECT * FROM appointment WHERE  employee_id NOT IN (SELECT employee_id FROM employee WHERE salary = '3000') ;
 
@@ -368,14 +369,26 @@ SELECT * FROM appointment WHERE EXISTS (SELECT 1 FROM appointment WHERE datetime
 SELECT * FROM appointment WHERE NOT EXISTS (SELECT 1 FROM appointment WHERE status = 'Триває');
 
 
--- non c updatec
+-- non c update
 UPDATE service SET price = 30 WHERE id NOT IN (1, 5);
 
 UPDATE service SET price = 30 WHERE price IN (40.00);
 
 UPDATE service
 SET price = 30
-WHERE price = 40.00;
+WHERE price = 40.00;   -- ]]]]]]]]
+
+-- Оновлюємо ціни послуг на 30.00, де ціна раніше дорівнювала 40.00
+UPDATE service
+SET price = 30
+WHERE price = 40.00
+  AND (price, duration) IN (
+    -- Підзапит для вибору ціни та тривалості послуг, які мають ціну 40.00
+    SELECT price, duration
+    FROM service
+    WHERE price = 40.00
+);
+
 
 
 DELETE FROM appointment WHERE id NOT IN (SELECT appointment_id FROM payment);
@@ -496,9 +509,9 @@ WHERE id = 1;
 UPDATE service
 SET price = 30
 WHERE price = 40.00
-  AND NOT EXISTS (
+  AND NOT EXISTS (                     
     SELECT 1
-    FROM (SELECT * FROM service) AS temp
+    FROM (SELECT * FROM service) AS temp      
     WHERE temp.price = 40.00
 );
 
@@ -539,5 +552,52 @@ WHERE NOT EXISTS (
     WHERE temp.cost > 15.00
 );
 
+SELECT 2;
+
 DELETE FROM product
 WHERE  cost = 15.00;
+
+
+SELECT serv.name AS service_name, prod.name AS product_name
+FROM service serv
+         JOIN services2products s2p ON serv.id = s2p.service_id
+         JOIN product prod ON s2p.product_id = prod.id
+LIMIT 3;
+
+-- написати ще 2 запити  до 2 практичної 
+-- наприклад 1 вибрити усіх масажистів які не мають epoitment на завтра 
+--           2 в залежностні від наявності epoitment які є на цьому тижні знайти кількість пробуктів які потрібні для їхнього виконання 
+
+-- змінити зірочки 
+-- додати підзапити  там де їх нема
+
+
+SELECT DISTINCT e.name AS massage_therapist FROM employee e
+JOIN employee_service es ON e.employee_id = es.employee_id
+WHERE es.service_id IN (SELECT id FROM service
+                        WHERE name LIKE '%Масаж%')
+AND e.employee_id NOT IN (SELECT DISTINCT a.employee_id FROM appointment a
+                        WHERE DATE(a.datetime) = '2024-04-23'
+);
+
+
+SELECT   p.name AS product_name, COUNT(sp.product_id) AS required_products
+FROM appointment a
+         JOIN service s ON a.service_id = s.id
+         JOIN services2products sp ON s.id = sp.service_id
+         JOIN product p ON sp.product_id = p.id
+WHERE DATE(a.datetime) BETWEEN '2004-03-21' AND '2025-03-27'
+GROUP BY s.id, s.name, p.id, p.name;
+
+
+
+
+
+
+
+
+
+
+
+
+  
