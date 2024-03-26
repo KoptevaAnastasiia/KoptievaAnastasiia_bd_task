@@ -370,26 +370,28 @@ SELECT * FROM appointment WHERE NOT EXISTS (SELECT 1 FROM appointment WHERE stat
 
 
 -- non c update
-UPDATE service SET price = 30 WHERE id NOT IN (1, 5);
-
-UPDATE service SET price = 30 WHERE price IN (40.00);
-
 UPDATE service
 SET price = 30
-WHERE price = 40.00;   -- ]]]]]]]]
-
--- Оновлюємо ціни послуг на 30.00, де ціна раніше дорівнювала 40.00
-UPDATE service
-SET price = 30
-WHERE price = 40.00
-  AND (price, duration) IN (
-    -- Підзапит для вибору ціни та тривалості послуг, які мають ціну 40.00
-    SELECT price, duration
-    FROM service
-    WHERE price = 40.00
+WHERE id NOT IN (
+    SELECT id FROM (
+                       SELECT id FROM service WHERE id != 1 AND id != 5
+                   ) AS subquery
 );
 
+UPDATE service SET price = 30 WHERE price IN (
+    SELECT id FROM (
+                       SELECT id FROM service WHERE id != 1 AND id != 5
+                   ) AS subquery
+);
 
+UPDATE service
+SET price = 30
+WHERE id NOT IN (
+    SELECT id FROM (
+                       SELECT id FROM service WHERE id != 1 AND id != 5
+                   ) AS subquery
+);    
+ 
 
 DELETE FROM appointment WHERE id NOT IN (SELECT appointment_id FROM payment);
 
@@ -416,7 +418,7 @@ WHERE NOT EXISTS (
     WHERE appoint.customer_id = custo.id AND appoint.status = 'Завершений'
 );
 
-SELECT * FROM appointment WHERE status = 'Завершений';
+SELECT * FROM appointment WHERE status = 'Завершений';  -- ------------------------------------------------------------------------
 
 
  
