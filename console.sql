@@ -387,9 +387,7 @@ UPDATE service SET price = 30 WHERE price IN (
 UPDATE service
 SET price = 30
 WHERE id NOT IN (
-    SELECT id FROM (
-                       SELECT id FROM service WHERE id != 1 AND id != 5
-                   ) AS subquery
+    SELECT id FROM (SELECT id FROM service WHERE id != 1 AND id != 5) AS subquery
 );    
  
 
@@ -419,6 +417,7 @@ WHERE NOT EXISTS (
 );
 
 SELECT * FROM appointment WHERE status = 'Завершений';  -- ------------------------------------------------------------------------
+ 
 
 
  
@@ -529,16 +528,20 @@ WHERE price = 40.00
 
 
 
-DELETE FROM payment
-WHERE date IN ('2024-03-12');
+ DELETE FROM payment
+WHERE EXISTS (
+    SELECT * FROM payment WHERE date = '2024-03-12'
+);
 
+ DELETE FROM payment
+WHERE NOT EXISTS (
+    SELECT * FROM payment WHERE date = '2024-03-12'
+);
 
-DELETE FROM payment
-WHERE date NOT IN ('2024-03-12');
-
-
-DELETE FROM payment
-WHERE date = ('2024-03-12');
+ DELETE FROM payment
+WHERE date = (
+    SELECT date FROM payment WHERE date = '2024-03-12'
+);
 
 DELETE FROM product
 WHERE EXISTS (
@@ -557,7 +560,7 @@ WHERE NOT EXISTS (
 SELECT 2;
 
 DELETE FROM product
-WHERE  cost = 15.00;
+WHERE  cost = 15.00;-- --------------------------------------------------------------------------------------------------------------------
 
 
 SELECT serv.name AS service_name, prod.name AS product_name
