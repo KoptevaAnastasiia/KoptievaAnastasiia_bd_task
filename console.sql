@@ -532,11 +532,13 @@ WHERE price = 40.00
 WHERE EXISTS (
     SELECT * FROM payment WHERE date = '2024-03-12'
 );
+COMMIT;
 
  DELETE FROM payment
 WHERE NOT EXISTS (
     SELECT * FROM payment WHERE date = '2024-03-12'
 );
+ROLLBACK;
 
  DELETE FROM payment
 WHERE date = (
@@ -592,14 +594,17 @@ WHERE DATE(a.datetime) BETWEEN '2004-03-21' AND '2025-03-27'
 GROUP BY s.id, s.name, p.id, p.name;
 
 
+/*
+CREATE PROCEDURE AddNewClient
+    @Name NVARCHAR(100),
+    @PhoneNumber NVARCHAR(20),
+    @Email NVARCHAR(100),
+    @ClientId INT OUTPUT
+AS
+BEGIN
+INSERT INTO Clents (Name, PhoneNumber, Email)
+VALUES (@Name, @PhoneNumber, @Email);
 
-
-
-
-
-
-
-
-
-
-  
+SET @ClientId = SCOPE_IDENTITY(); -- Отримання ID нового клієнта
+END
+*/
