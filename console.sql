@@ -10,7 +10,7 @@ CREATE TABLE service (
                          start_time TIME,   
                          end_time TIME
 );
-
+ 
 INSERT INTO service (id, name, description, duration, price,start_time , end_time )
 VALUES
     (1, 'Стрижка', 'Базова стрижка', 30, 25.00, '09:00:00', '11:00:00'),
@@ -688,10 +688,10 @@ FROM
     service s ON es.service_id = s.id;
 
 
-
 SELECT
     e.name AS 'Employee name',
-    s.start_time  AS 'Time from-to',
+    TIME_FORMAT(s.start_time, '%H:%i') AS 'Start Time',
+    TIME_FORMAT(s.end_time, '%H:%i') AS 'End Time',
     s.name AS 'Kind of service'
 FROM
     employee e
@@ -699,8 +699,6 @@ FROM
     employee_service es ON e.employee_id = es.employee_id
         JOIN
     service s ON es.service_id = s.id;
-
-
 
 
  
