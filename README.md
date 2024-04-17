@@ -3,7 +3,7 @@ contents:
 pa1/
 
 
-p2/
+pa2/
 
 
 pa3/
