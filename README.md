@@ -8,13 +8,21 @@ contents:
 
 pa1/console.sql
 This SQL script creates a database for a beauty salon with the following tables:
+
 1 service: Stores information about the services provided by the salon, such as name, description, duration, price, start and end time.
+
 2 product: Contains information about the products that are sold in the salon, such as name, description, quantity in stock, and price.
+
 3 customer: A table to store customer data, including name, phone, email, and address.
+
 4 employee: Contains information about the salon's employees, such as name, contact information, position, and salary.
+
 5 appointment: Records data about customer appointments for services, indicating the customer, service, employee, date, and status of the appointment.
+
 7 payment: Stores information about payments for services, including the amount, payment method, and payment date.
+
 8 services2products: A many-to-many table that establishes a relationship between services and products used or sold in connection with those services.
+
 9 employee_service: A many-to-many table specifying which employees can perform which services.
 
 
@@ -23,13 +31,21 @@ pa2/
 
 pa3/subqueries.sql 
 This SQL file contains various queries for managing the beauty salon database:
+
 Queries for selecting staff
+
 Queries for selecting records for services
+
 Checking the availability of records by a certain date and status
+
 Queries for updating prices
+
 Requests to delete records 
+
 Requests for information
+
 Queries for updating payments
+
 Queries for combining and filtering data
 
 
