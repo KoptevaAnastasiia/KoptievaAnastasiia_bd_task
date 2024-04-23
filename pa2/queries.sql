@@ -1,5 +1,5 @@
-CREATE SCHEMA my_test;
-USE my_test;
+CREATE SCHEMA my_test23;
+USE my_test23;
 
 -- Select distinct massage therapists' names who work with massage services but are not working on a specific date.
 SELECT DISTINCT e.name AS massage_therapist
