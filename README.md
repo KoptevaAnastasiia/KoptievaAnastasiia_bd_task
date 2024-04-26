@@ -1,8 +1,10 @@
-###  Purpose
+ 
+
+<h1 align="left">Purpose::</h1>
 This database will allow you to effectively organize information about clients, services, employees and much more, contributing to the optimal management of a beauty salon.
 
-### Contents:
-
+ 
+<h1 align="left">Contents::</h1>
 
 
 <h2 align="left">pa1/console.sql:</h2>
@@ -77,5 +79,5 @@ Queries for combining and filtering data
 This file contains the employee schedule, where each employee is assigned a list of services with defined start and end times, as well as the type of service. Each employee has its own identifier(employee_id) and is associated with the employee table. TheINSERT INTO query fills the employee_schedule1 table with information about the employee schedule using data from the employee_service and service tables, where each service has its own type and identifier.
 
 
- <h2 align="left">Languages:</h2>
+ <h1 align="left">Languages:</h1>
 <p align="left"> <a href="https://www.mysql.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40"/> </a> </p>
