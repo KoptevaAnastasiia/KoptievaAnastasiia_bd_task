@@ -49,8 +49,12 @@ There is an additional relationship in the appointment table where the employee_
 
 
 
-<h2 align="left">pa2/console.sql:</h2>
+<h2 align="left">pa2/queries.sql:</h2>
 
+Contains 2 queries:
+
+Query 1: Select unique names of hairdressers who work with massage services but are not working on a specific date.
+Query 2: Selection of product names and their number of uses during a certain date range.
 <h2 align="left">pa3/subqueries.sql :</h2>
  
 This SQL file contains various queries for managing the beauty salon database:
@@ -72,7 +76,8 @@ Queries for updating payments
 Queries for combining and filtering data
 
 <h2 align="left">pa4/procedures.sql:</h2>
- 
+
+This SQL file contains a procedure to count the number of employees with corresponding salaries in the beauty salon database. Here is a brief description of its contents:
 
 <h2 align="left">pa5/views.sql:</h2>
  
