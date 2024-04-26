@@ -5,7 +5,7 @@ This database will allow you to effectively organize information about clients, 
 
 
 
-<h3 align="left">pa1/console.sql:</h3>
+<h2 align="left">pa1/console.sql:</h2>
  
 This SQL script creates a database for a beauty salon with the following tables:
 
@@ -47,9 +47,9 @@ There is an additional relationship in the appointment table where the employee_
 
 
 
-<h3 align="left">pa2/console.sql:</h3>
+<h2 align="left">pa2/console.sql:</h2>
 
-<h3 align="left">pa3/subqueries.sql :</h3>
+<h2 align="left">pa3/subqueries.sql :</h2>
  
 This SQL file contains various queries for managing the beauty salon database:
 
@@ -69,13 +69,13 @@ Queries for updating payments
 
 Queries for combining and filtering data
 
-<h3 align="left">pa4/procedures.sql:</h3>
+<h2 align="left">pa4/procedures.sql:</h2>
  
 
-<h3 align="left">pa5/views.sql:</h3>
+<h2 align="left">pa5/views.sql:</h2>
  
 This file contains the employee schedule, where each employee is assigned a list of services with defined start and end times, as well as the type of service. Each employee has its own identifier(employee_id) and is associated with the employee table. TheINSERT INTO query fills the employee_schedule1 table with information about the employee schedule using data from the employee_service and service tables, where each service has its own type and identifier.
 
 
- <h3 align="left">Languages:</h3>
+ <h2 align="left">Languages:</h2>
 <p align="left"> <a href="https://www.mysql.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40"/> </a> </p>
