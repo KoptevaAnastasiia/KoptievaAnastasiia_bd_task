@@ -1,7 +1,7 @@
-Purpose
+###  Purpose
 This database will allow you to effectively organize information about clients, services, employees and much more, contributing to the optimal management of a beauty salon.
 
-contents:
+### Contents:
 
 pa1/console.sql
 This SQL script creates a database for a beauty salon with the following tables:
