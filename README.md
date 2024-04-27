@@ -1,10 +1,10 @@
  
 
-<h1 align="left">Purpose::</h1>
+<h1 align="left">Purpose:</h1>
 This database will allow you to effectively organize information about clients, services, employees and much more, contributing to the optimal management of a beauty salon.
 
  
-<h1 align="left">Contents::</h1>
+<h1 align="left">Contents:</h1>
 
 
 <h2 align="left">pa1/console.sql:</h2>
