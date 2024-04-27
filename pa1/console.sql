@@ -1,5 +1,5 @@
-CREATE SCHEMA my_test;
-USE my_test;
+CREATE SCHEMA my_test00;
+USE my_test00;
 
 CREATE TABLE service (
                          id INT PRIMARY KEY,
@@ -352,15 +352,9 @@ ALTER TABLE payment
 ALTER TABLE payment
     ADD CONSTRAINT fk_customer_payment
         FOREIGN KEY (customer_id) REFERENCES customer(id);
-                   -- це    посилається на     це
-
+ 
 ALTER TABLE appointment
     ADD CONSTRAINT fk_employee_appointment
         FOREIGN KEY (employee_id) REFERENCES employee(employee_id);
 
 
-
-
-
-
- 

@@ -1,4 +1,4 @@
-USE my_test;
+USE my_test00;
 
 DROP PROCEDURE the_number_of_employees_with_wages_sproc;
 

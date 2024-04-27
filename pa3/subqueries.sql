@@ -1,5 +1,5 @@
-CREATE SCHEMA my_test;
-USE my_test;
+CREATE SCHEMA my_test00;
+USE my_test00;
 
 
 -- Select employee_ids of stylists who do not earn a salary of 3000.
