@@ -1,12 +1,14 @@
+ 
 
-
-
-
+<h1 align="left">Purpose::</h1>
 This database will allow you to effectively organize information about clients, services, employees and much more, contributing to the optimal management of a beauty salon.
 
-contents:
+ 
+<h1 align="left">Contents::</h1>
 
-pa1/console.sql
+
+<h2 align="left">pa1/console.sql:</h2>
+ 
 This SQL script creates a database for a beauty salon with the following tables:
 
 1 service: Stores information about the services provided by the salon, such as name, description, duration, price, start and end time.
@@ -47,10 +49,14 @@ There is an additional relationship in the appointment table where the employee_
 
 
 
-pa2/
+<h2 align="left">pa2/queries.sql:</h2>
 
+Contains 2 queries:
 
-pa3/subqueries.sql 
+Query 1: Select unique names of hairdressers who work with massage services but are not working on a specific date.
+Query 2: Selection of product names and their number of uses during a certain date range.
+<h2 align="left">pa3/subqueries.sql :</h2>
+ 
 This SQL file contains various queries for managing the beauty salon database:
 
 Queries for selecting staff
@@ -69,10 +75,14 @@ Queries for updating payments
 
 Queries for combining and filtering data
 
+<h2 align="left">pa4/procedures.sql:</h2>
 
-pa4/procedures.sql
+This SQL file contains a procedure to count the number of employees with corresponding salaries in the beauty salon database. Here is a brief description of its contents:
 
-pa5/views.sql
+<h2 align="left">pa5/views.sql:</h2>
+ 
 This file contains the employee schedule, where each employee is assigned a list of services with defined start and end times, as well as the type of service. Each employee has its own identifier(employee_id) and is associated with the employee table. TheINSERT INTO query fills the employee_schedule1 table with information about the employee schedule using data from the employee_service and service tables, where each service has its own type and identifier.
 
- 
+
+ <h1 align="left">Languages:</h1>
+<p align="left"> <a href="https://www.mysql.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40"/> </a> </p>
