@@ -11,11 +11,14 @@ CREATE TABLE employee_schedule1 (
 
 
 
+ 
 
-SELECT e.name AS 'Employee name',
+
+SELECT
+    e.name AS 'Employee name',
     TIME_FORMAT(es1.start_time, '%H:%i') AS 'Start Time',
     TIME_FORMAT(es1.end_time, '%H:%i') AS 'End Time',
-    es1.service_type AS 'Service List'
+    es1.service_type AS 'Service Type'
 FROM
     employee e
         JOIN (
@@ -35,8 +38,3 @@ FROM
 ORDER BY
     e.position DESC;
 
-
-
-
-
- 
