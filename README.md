@@ -9,7 +9,7 @@ This database will allow you to effectively organize information about clients, 
 
 <h2 align="left">pa1/console.sql:</h2>
  
-This SQL script creates a database for a beauty salon with the following tables:
+This SQL script creates a database for a beauty salon with the following tables and relationship:
 
 1 service: Stores information about the services provided by the salon, such as name, description, duration, price, start and end time.
 
