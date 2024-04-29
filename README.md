@@ -1,10 +1,10 @@
  
 
-<h1 align="left">Purpose::</h1>
+<h1 align="left">Purpose:</h1>
 This database will allow you to effectively organize information about clients, services, employees and much more, contributing to the optimal management of a beauty salon.
 
  
-<h1 align="left">Contents::</h1>
+<h1 align="left">Contents:</h1>
 
 
 <h2 align="left">pa1/console.sql:</h2>
@@ -81,7 +81,7 @@ This SQL file contains a procedure to count the number of employees with corresp
 
 <h2 align="left">pa5/views.sql:</h2>
  
-This file contains the employee schedule, where each employee is assigned a list of services with defined start and end times, as well as the type of service. Each employee has its own identifier(employee_id) and is associated with the employee table. TheINSERT INTO query fills the employee_schedule1 table with information about the employee schedule using data from the employee_service and service tables, where each service has its own type and identifier.
+This file contains the employee schedule, where each employee is assigned a list of services with defined start and end times, as well as the type of service. Each employee has its own identifier(employee_id) and is associated with the employee table. 
 
 
  <h1 align="left">Languages:</h1>
