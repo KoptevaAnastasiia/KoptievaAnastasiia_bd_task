@@ -86,6 +86,8 @@ This file contains the employee schedule, where each employee is assigned a list
 
 <h2 align="left"> Deploy project instruction :</h2>
 1 Ensure your environment is configured properly
+
+
 2 Clone a repository using a HTTPS or SSH
 
  <h1 align="left">Languages:</h1>
