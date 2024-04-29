@@ -84,5 +84,9 @@ This SQL file contains a procedure to count the number of employees with corresp
 This file contains the employee schedule, where each employee is assigned a list of services with defined start and end times, as well as the type of service. Each employee has its own identifier(employee_id) and is associated with the employee table. 
 
 
+<h2 align="left"> Deploy project instruction :</h2>
+1 Ensure your environment is configured properly
+2 Clone a repository using a HTTPS or SSH
+
  <h1 align="left">Languages:</h1>
 <p align="left"> <a href="https://www.mysql.com/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/mysql/mysql-original-wordmark.svg" alt="mysql" width="40" height="40"/> </a> </p>
